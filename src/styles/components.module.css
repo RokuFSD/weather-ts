@@ -1,0 +1,341 @@
+/*===== Button Components ==== */
+.mainCard .cardBtn {
+    position: absolute;
+    right: 16px;
+    bottom: 25px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    outline: 1px solid var(--primary-light);
+    border-radius: 4px;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.mainCard .cardBtn:hover {
+    background: var(--primary-transparent);
+    color: var(--primary-dark);
+}
+
+.cardTooltip {
+    position: absolute;
+    pointer-events: none;
+    visibility: hidden;
+    border-radius: 2.5px;
+    outline: 2px solid var(--primary-light);
+    width: 120px;
+    text-align: center;
+    color: var(--primary);
+    /*Positioning the tooltip*/
+    right: 0;
+}
+
+@media (hover: hover) {
+    .mainCard .cardBtn:hover .cardTooltip {
+        visibility: visible;
+        animation: slide .5s forwards;
+    }
+
+    /*Tooltip Arrow*/
+    .cardTooltip::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 7px solid var(--primary-light);
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent; /* Color of the content */
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+/*====== Card Components ====*/
+.card {
+    display: flex;
+    /* Glassmorphism effect */
+    background: transparent;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.mainCard {
+    width: max(280px, 80%);
+    height: 114px;
+    align-items: center;
+    padding: 0 16px;
+    gap: 1rem;
+    position: relative;
+}
+
+.mainCard .cardDescription {
+    max-height: 82px;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.mainCard .cardDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainCard .cardMinMax {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    gap: 4px;
+}
+
+.label {
+    display: flex;
+    width: 60px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    transition: transform .4s;
+    cursor: default;
+}
+
+.label:hover {
+    transform: scale(1.5);
+    filter: brightness(90%);
+}
+
+.labelHigh {
+    background: var(--secondary);
+}
+
+.labelLow {
+    background: var(--primary-light);
+}
+
+.forecastCard {
+    box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+    min-width: 6rem;
+    flex-flow: column wrap;
+    height: 7rem;
+    gap: 2rem;
+    padding: .5rem 1rem;
+    position: relative;
+    pointer-events: none;
+}
+
+.forecastCard h2 {
+    position: absolute;
+    bottom: 105%;
+    left: 0;
+}
+
+.detailCard {
+    box-shadow: 0 2px 10px 0 rgba(31, 38, 135, 0.37);
+    flex-flow: row wrap;
+    width: 7rem;
+    height: 5rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.detailCard i{
+    position: absolute;
+    align-self: center;
+    right: 105%;
+}
+
+.detailCard > *:not(:first-child){
+    flex-basis: 100%;
+}
+
+
+/*======= Form Components =====*/
+.inputGroup {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.inputGroup i {
+    color: var(--core-medium);
+    position: absolute;
+    right: 1rem;
+    transition: all .2s ease-in;
+}
+
+.input {
+    width: 288px;
+    height: 38px;
+    color: #000;
+    font-family: inherit;
+    background: none;
+    outline: 1px solid var(--core-dark);
+    border: none;
+    border-radius: 24px;
+    transition: all .2s ease-in;
+}
+
+.input:focus {
+    outline: 1px solid #000;
+}
+
+.input:focus + i {
+    color: #000;
+}
+
+.input::placeholder {
+    color: var(--core-medium);
+}
+
+.weather__form {
+    position: relative;
+}
+
+.formError {
+    width: 16rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    white-space: pre-line;
+}
+
+.formError::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--secondary); /* Color of the content */
+    position: absolute;
+    left: 2rem;
+    bottom: 100%;
+}
+
+/*====== Loader Components =====*/
+.loader__outter {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    z-index: 100;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 16px solid var(--core-dark);
+    border-top: 16px solid var(--core-light);
+    animation: spin 2s linear infinite;
+}
+
+/*========= Slider Components =====*/
+.slider {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    pointer-events: none;
+}
+
+.sliderTabsContainer {
+    display: flex;
+    pointer-events: all;
+    gap: 1rem;
+    border-bottom: 1px solid var(--core-medium);
+}
+
+.sliderTab {
+    position: relative;
+    color: var(--core-dark);
+    margin-bottom: -1px;
+    text-align: center;
+    width: 5rem;
+    padding: .25rem;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.sliderTabActive {
+    border: 1px solid var(--core-medium);
+    border-bottom-color: var(--core-light);
+}
+
+.sliderTabActive::after {
+    position: absolute;
+    content: "";
+    width: 1rem;
+    height: .25rem;
+    background-color: var(--primary-light);
+    border-radius: 25%;
+    left: 50%;
+    top: 105%;
+    transform: translateX(-50%);
+}
+
+.sliderContainer {
+    pointer-events: all;
+    align-items: center;
+    max-width: 100%;
+    height: 12rem;
+    overflow-x: scroll;
+    gap: 1.5rem;
+    visibility: hidden;
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+}
+
+.sliderContainerActive {
+    display: flex;
+    visibility: visible;
+}
+
+.sliderContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Animations */
+
+@keyframes slide {
+    100% {
+        right: 150%;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sliderActive {
+    cursor: grab;
+}

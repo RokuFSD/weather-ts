@@ -1,0 +1,60 @@
+.title{
+  font-weight: var(--font-regular);
+  font-size: var(--h1-font-size);
+  font-family: var(--h1-font);
+  text-align: center;
+}
+
+.titleSpan{
+  display: block;
+  font-size: var(--input-font-size)
+}
+
+.headerTitle{
+  font-weight: var(--font-bold);
+  font-size: var(--h1-font-size);
+}
+
+.titleCard{
+  font-weight: var(--font-medium);
+  font-size: var(--title-font-size);
+}
+
+.subTitleCard{
+  font-weight: var(--font-medium);
+  font-size: var(--input-font-size);
+}
+
+.paragraph{
+  font-weight: var(--font-regular);
+  font-size: var(--paragraph-font-size);
+}
+
+.smallText{
+  font-weight: var(--font-regular);
+  font-size: var(--small-font-size);
+  display: block;
+}
+
+.smallerText{
+  font-weight: var(--font-medium);
+  font-size: var(--xs-font-size);
+}
+
+.inputText{
+  font-weight: var(--font-medium);
+  font-size: var(--input-font-size);
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.sectionTitle{
+  width: 100%;
+  color: var(--core-dark);
+  border-bottom: 1px solid var(--core-dark);
+  align-self: flex-start;
+  font-weight: var(--font-medium);
+  font-size: var(--input-font-size);
+}
